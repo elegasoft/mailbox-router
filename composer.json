@@ -1,9 +1,11 @@
 {
-    "name": "elegasoft/mailbox",
+    "name": "elegasoft/mailbox-router",
     "description": "A Boilerplate for registering and managing Mailboxes with beyondcode/laravel-mailbox",
     "keywords": [
         "elegasoft",
-        "mailbox"
+        "mailbox",
+        "laravel",
+        "router"
     ],
     "homepage": "https://github.com/elegasoft/mailbox",
     "license": "MIT",
