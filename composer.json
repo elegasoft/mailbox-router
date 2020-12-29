@@ -46,11 +46,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MailboxRouterServiceProvider"
-            ],
-            "aliases": {
-                "Mailbox": "Elegasoft\\Mailbox\\MailboxFacade"
-            }
+                "Elegasoft\\Mailbox\\MailboxRouterServiceProvider"
+            ]
         }
     }
 }
