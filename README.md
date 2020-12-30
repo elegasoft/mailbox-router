@@ -17,7 +17,12 @@ First publish the route file stub to `routes/mail.php`:
 php artisan mailboxes:install
 ```
 
-Then define your routes:
+(Optional) generate a mailbox to handle a route (i.e. `App\Mailboxes\MyMailbox`):
+``` php
+php artisan make:mailbox MyMailbox
+```
+
+Then define mailboxes to handle incoming mail:
 ``` php
 // routes/mail.php
 

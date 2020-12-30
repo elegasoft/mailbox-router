@@ -1,0 +1,13 @@
+<?php
+
+namespace DummyNamespace;
+
+use BeyondCode\Mailbox\InboundEmail;
+
+class DummyClass
+{
+    public function __invoke(InboundEmail $email)
+    {
+        // handle
+    }
+}

@@ -21,6 +21,7 @@ class MailboxRouterServiceProvider extends ServiceProvider
 
             $this->commands([
                 MailboxInstaller::class,
+                MailboxGenerator::class,
             ]);
         }
 
