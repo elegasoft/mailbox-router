@@ -7,7 +7,7 @@
         "laravel",
         "router"
     ],
-    "homepage": "https://github.com/elegasoft/mailbox",
+    "homepage": "https://github.com/elegasoft/mailbox-router",
     "license": "MIT",
     "type": "library",
     "authors": [
