@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Elegasoft\Mailbox;
-
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -17,15 +17,15 @@ class MailboxInstaller extends Command
     {
         $this->info('Installing default Mailbox Routes...');
 
-        if (File::exists(base_path('routes/mail.php')))
-        {
+        if (File::exists(base_path('routes/mail.php'))) {
             $this->error('File exists at /routes/mail.php unable to install again.');
+
             return;
         }
 
         $this->call('vendor:publish', [
             '--provider' => MailboxRouterServiceProvider::class,
-            '--tag'      => "routes",
+            '--tag' => 'routes',
         ]);
 
         $this->info('Installed Mailbox Routes as /routes/mail.php');

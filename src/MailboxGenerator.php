@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Elegasoft\Mailbox;
-
 
 use Illuminate\Console\GeneratorCommand;
 
@@ -37,7 +37,7 @@ class MailboxGenerator extends GeneratorCommand
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function getStub()
     {

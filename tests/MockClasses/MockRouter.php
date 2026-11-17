@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Elegasoft\Mailbox\Tests\MockClasses;
-
 
 use BeyondCode\Mailbox\Routing\Route;
 use BeyondCode\Mailbox\Routing\Router;
@@ -16,10 +16,10 @@ class MockRouter extends Router
         $reflection = new ReflectionClass($this->routes);
         $property = $reflection->getProperty('routes');
         $property->setAccessible(true);
-        return collect($property->getValue($this->routes))->map(function (Route $route)
-        {
+
+        return collect($property->getValue($this->routes))->map(function (Route $route) {
             return [
-                'action'  => $route->action(),
+                'action' => $route->action(),
                 'pattern' => $route->pattern(),
                 'subject' => $route->subject(),
             ];

@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Elegasoft\Mailbox\Tests\MockClasses;
 
@@ -10,8 +11,7 @@ class MockServiceProvider extends MailboxRouterServiceProvider
 {
     public function register()
     {
-        $this->app->singleton('mailbox', function ()
-        {
+        $this->app->singleton('mailbox', function () {
             return new MockRouter($this->app);
         });
 
@@ -20,10 +20,10 @@ class MockServiceProvider extends MailboxRouterServiceProvider
 
     protected function loadMailboxRoutes()
     {
-        if (File::exists(__DIR__ . '/../../routes/mail.php'))
-        {
+        if (File::exists(__DIR__ . '/../../routes/mail.php')) {
             return __DIR__ . '/../../routes/mail.php';
         }
+
         return __DIR__ . '/MockConfig.php';
     }
 }

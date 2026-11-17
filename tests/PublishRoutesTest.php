@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Elegasoft\Mailbox\Tests;
-
 
 use Elegasoft\Mailbox\MailboxRouterServiceProvider;
 use Illuminate\Support\Facades\Artisan;
@@ -11,12 +11,10 @@ use Orchestra\Testbench\TestCase;
 
 class PublishRoutesTest extends TestCase
 {
-
     /** @test */
     public function it_publishes_the_config_as_a_route_file()
     {
-        if (File::exists(base_path('routes/mail.php')))
-        {
+        if (File::exists(base_path('routes/mail.php'))) {
             unlink(base_path('routes/mail.php'));
         }
 
@@ -49,8 +47,7 @@ class PublishRoutesTest extends TestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        if (File::exists(base_path('routes/mail.php')))
-        {
+        if (File::exists(base_path('routes/mail.php'))) {
             unlink(base_path('routes/mail.php'));
         }
     }

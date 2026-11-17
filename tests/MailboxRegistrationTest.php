@@ -1,27 +1,26 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Elegasoft\Mailbox\Tests;
 
-
 use BeyondCode\Mailbox\MailboxServiceProvider;
+use Elegasoft\Mailbox\Tests\MockClasses\MockRouter;
 use Elegasoft\Mailbox\Tests\MockClasses\MockServiceProvider;
 use Illuminate\Foundation\Testing\WithFaker;
 use Orchestra\Testbench\TestCase;
 
 /**
- * @property \Elegasoft\Mailbox\Tests\MockClasses\MockRouter router
+ * @property MockRouter router
  */
 class MailboxRegistrationTest extends TestCase
 {
     use WithFaker;
 
-
     /** @test */
     public function it_can_map_config_of_arrays_to_mail_router()
     {
-        $this->router->getMappedRoutes()->each(function ($route)
-        {
+        $this->router->getMappedRoutes()->each(function ($route) {
             $configKey = 'mailbox-router.' . $route['subject'];
             $this->assertNotEmpty(config($configKey)[$route['pattern']]);
             $this->assertSame(config($configKey)[$route['pattern']], $route['action']);
@@ -36,7 +35,7 @@ class MailboxRegistrationTest extends TestCase
     }
 
     /** @test */
-    public function it_can_map_the_config_catchAll_to_the_mail_router()
+    public function it_can_map_the_config_catch_all_to_the_mail_router()
     {
         $fallback = $this->router->getCatchAllRoute();
         $this->assertSame(config('mailbox-router.catchAll'), get_class($fallback->getMailbox()));

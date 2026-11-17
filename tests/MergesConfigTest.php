@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Elegasoft\Mailbox\Tests;
-
 
 use Elegasoft\Mailbox\MailboxRouterServiceProvider;
 use Orchestra\Testbench\TestCase;
