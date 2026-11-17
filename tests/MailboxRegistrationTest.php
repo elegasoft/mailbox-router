@@ -18,9 +18,9 @@ class MailboxRegistrationTest extends TestCase
     use WithFaker;
 
     /** @test */
-    public function it_can_map_config_of_arrays_to_mail_router()
+    public function it_can_map_config_of_arrays_to_mail_router(): void
     {
-        $this->router->getMappedRoutes()->each(function ($route) {
+        $this->router->getMappedRoutes()->each(function (array $route): void {
             $configKey = 'mailbox-router.' . $route['subject'];
             $this->assertNotEmpty(config($configKey)[$route['pattern']]);
             $this->assertSame(config($configKey)[$route['pattern']], $route['action']);
@@ -28,17 +28,17 @@ class MailboxRegistrationTest extends TestCase
     }
 
     /** @test */
-    public function it_can_map_the_config_fallback_to_the_mail_router()
+    public function it_can_map_the_config_fallback_to_the_mail_router(): void
     {
         $fallback = $this->router->getFallbackRoute();
-        $this->assertSame(config('mailbox-router.fallback'), get_class($fallback->getMailbox()));
+        $this->assertSame(config('mailbox-router.fallback'), $fallback->getMailbox()::class);
     }
 
     /** @test */
-    public function it_can_map_the_config_catch_all_to_the_mail_router()
+    public function it_can_map_the_config_catch_all_to_the_mail_router(): void
     {
         $fallback = $this->router->getCatchAllRoute();
-        $this->assertSame(config('mailbox-router.catchAll'), get_class($fallback->getMailbox()));
+        $this->assertSame(config('mailbox-router.catchAll'), $fallback->getMailbox()::class);
     }
 
     protected function getPackageProviders($app)

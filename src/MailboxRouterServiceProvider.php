@@ -13,7 +13,7 @@ class MailboxRouterServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -29,7 +29,7 @@ class MailboxRouterServiceProvider extends ServiceProvider
         $this->registerMailboxes();
     }
 
-    public function register()
+    public function register(): void
     {
         $mailboxRoutes = $this->loadMailboxRoutes();
         $this->mergeConfigFrom($mailboxRoutes, 'mailbox-router');
@@ -62,7 +62,7 @@ class MailboxRouterServiceProvider extends ServiceProvider
         }
     }
 
-    protected function loadMailboxRoutes()
+    protected function loadMailboxRoutes(): string
     {
         if (File::exists(base_path('/routes/mail.php'))) {
             return base_path('/routes/mail.php');

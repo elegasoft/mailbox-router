@@ -10,7 +10,7 @@ use Orchestra\Testbench\TestCase;
 class MergesConfigTest extends TestCase
 {
     /** @test */
-    public function it_merges_the_default_config_file_as_a_fallback()
+    public function it_merges_the_default_config_file_as_a_fallback(): void
     {
         $this->assertEmpty(config('mailbox-router.from'));
         $this->assertEmpty(config('mailbox-router.to'));

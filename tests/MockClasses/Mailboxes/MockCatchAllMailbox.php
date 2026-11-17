@@ -13,7 +13,7 @@ class MockCatchAllMailbox
      */
     public $emails = [];
 
-    public function __invoke(InboundEmail $email)
+    public function __invoke(InboundEmail $email): \stdClass
     {
         return (object) [
             'email' => $email,

@@ -13,7 +13,7 @@ class MailboxInstaller extends Command
 
     protected $description = 'Installs the default Mailbox Routes';
 
-    public function handle()
+    public function handle(): void
     {
         $this->info('Installing default Mailbox Routes...');
 

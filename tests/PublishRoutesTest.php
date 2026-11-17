@@ -12,7 +12,7 @@ use Orchestra\Testbench\TestCase;
 class PublishRoutesTest extends TestCase
 {
     /** @test */
-    public function it_publishes_the_config_as_a_route_file()
+    public function it_publishes_the_config_as_a_route_file(): void
     {
         if (File::exists(base_path('routes/mail.php'))) {
             unlink(base_path('routes/mail.php'));
@@ -26,7 +26,7 @@ class PublishRoutesTest extends TestCase
     }
 
     /** @test */
-    public function it_will_not_overwrite_the_published_file()
+    public function it_will_not_overwrite_the_published_file(): void
     {
         $contents = 'THIS IS A MAIL ROUTE STUB';
 

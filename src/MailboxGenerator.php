@@ -14,7 +14,7 @@ class MailboxGenerator extends GeneratorCommand
 
     protected $type = 'Mailbox';
 
-    public function handle()
+    public function handle(): void
     {
         parent::handle();
 

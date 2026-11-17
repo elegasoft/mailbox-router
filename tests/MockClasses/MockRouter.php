@@ -15,15 +15,12 @@ class MockRouter extends Router
     {
         $reflection = new ReflectionClass($this->routes);
         $property = $reflection->getProperty('routes');
-        $property->setAccessible(true);
 
-        return collect($property->getValue($this->routes))->map(function (Route $route) {
-            return [
-                'action' => $route->action(),
-                'pattern' => $route->pattern(),
-                'subject' => $route->subject(),
-            ];
-        });
+        return collect($property->getValue($this->routes))->map(fn(Route $route): array => [
+            'action' => $route->action(),
+            'pattern' => $route->pattern(),
+            'subject' => $route->subject(),
+        ]);
     }
 
     public function getFallbackRoute(): Route

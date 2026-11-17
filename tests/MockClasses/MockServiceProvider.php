@@ -9,16 +9,14 @@ use Illuminate\Support\Facades\File;
 
 class MockServiceProvider extends MailboxRouterServiceProvider
 {
-    public function register()
+    public function register(): void
     {
-        $this->app->singleton('mailbox', function () {
-            return new MockRouter($this->app);
-        });
+        $this->app->singleton('mailbox', fn(): \Elegasoft\Mailbox\Tests\MockClasses\MockRouter => new MockRouter($this->app));
 
         parent::register();
     }
 
-    protected function loadMailboxRoutes()
+    protected function loadMailboxRoutes(): string
     {
         if (File::exists(__DIR__ . '/../../routes/mail.php')) {
             return __DIR__ . '/../../routes/mail.php';

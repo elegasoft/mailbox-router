@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": "^8.4|^8.5|^8.6",
+        "php": "^8.4",
         "beyondcode/laravel-mailbox": "^5.0|^6.0",
         "illuminate/support": "^12.0|^13.0"
     },
@@ -40,7 +40,19 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "lint": [
+            "@lint:pint",
+            "@lint:rector"
+        ],
+        "lint:pint": "pint --test",
+        "lint:rector": "rector process --dry-run",
+        "format": "pint",
+        "refactor": "rector process",
+        "quality": [
+            "@lint",
+            "@test"
+        ]
     },
     "config": {
         "sort-packages": true

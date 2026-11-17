@@ -12,7 +12,7 @@ use Orchestra\Testbench\TestCase;
 class MailboxCommandTest extends TestCase
 {
     /** @test */
-    public function it_creates_a_new_foo_class()
+    public function it_creates_a_new_foo_class(): void
     {
         // destination path of the Foo class
         $mailboxClass = app_path('Mailboxes/MyMailbox.php');
