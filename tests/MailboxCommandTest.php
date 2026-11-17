@@ -8,10 +8,11 @@ use Elegasoft\Mailbox\MailboxRouterServiceProvider;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class MailboxCommandTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_creates_a_new_foo_class(): void
     {
         // destination path of the Foo class

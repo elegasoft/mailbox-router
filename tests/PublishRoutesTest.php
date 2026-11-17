@@ -8,10 +8,11 @@ use Elegasoft\Mailbox\MailboxRouterServiceProvider;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class PublishRoutesTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_publishes_the_config_as_a_route_file(): void
     {
         if (File::exists(base_path('routes/mail.php'))) {
@@ -25,7 +26,7 @@ class PublishRoutesTest extends TestCase
         $this->assertTrue(File::exists(base_path('routes/mail.php')));
     }
 
-    /** @test */
+    #[Test]
     public function it_will_not_overwrite_the_published_file(): void
     {
         $contents = 'THIS IS A MAIL ROUTE STUB';
