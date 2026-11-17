@@ -16,7 +16,7 @@ class MockRouter extends Router
         $reflection = new ReflectionClass($this->routes);
         $property = $reflection->getProperty('routes');
 
-        return collect($property->getValue($this->routes))->map(fn(Route $route): array => [
+        return collect($property->getValue($this->routes))->map(fn (Route $route): array => [
             'action' => $route->action(),
             'pattern' => $route->pattern(),
             'subject' => $route->subject(),

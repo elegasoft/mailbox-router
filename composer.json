@@ -48,6 +48,10 @@
         "lint:pint": "pint --test",
         "lint:rector": "rector process --dry-run",
         "format": "pint",
+        "fix": [
+            "@refactor",
+            "@format"
+        ],
         "refactor": "rector process",
         "quality": [
             "@lint",

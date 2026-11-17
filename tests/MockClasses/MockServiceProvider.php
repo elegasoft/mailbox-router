@@ -11,7 +11,7 @@ class MockServiceProvider extends MailboxRouterServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton('mailbox', fn(): \Elegasoft\Mailbox\Tests\MockClasses\MockRouter => new MockRouter($this->app));
+        $this->app->singleton('mailbox', fn (): MockRouter => new MockRouter($this->app));
 
         parent::register();
     }
